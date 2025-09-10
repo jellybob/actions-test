@@ -1,0 +1,21 @@
+name: Release
+on:
+  release:
+    types:
+      - released
+jobs:
+  release:
+    name: Build Release
+    runs-on: ubuntu-24.04
+    outputs:
+      name: "An output"
+    steps:
+      - name: "Run"
+        run: |
+          echo "Hello, world!"
+  external:
+    name: External Job
+    uses: ./.github/workflows/external.yml
+    needs: release
+    with:
+      parameter: ${{ needs.release.outputs.name }}
