@@ -1,8 +1,9 @@
 on:
   workflow_call:
 jobs:
-  name: External
-  runs-on: ubuntu-24.04
-  steps:
-    - run: |
-        echo "This is the external job."
+  external:
+    name: External
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          echo "This is the external job."
