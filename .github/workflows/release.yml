@@ -13,9 +13,11 @@ jobs:
       - name: "Run"
         run: |
           echo "Hello, world!"
+      - name: "Write to outputs"
+        run: |
+          echo "test=value" >> $GITHUB_OUTPUT
+
   external:
     name: External Job
     uses: ./.github/workflows/external.yml
     needs: release
-    with:
-      parameter: ${{ needs.release.outputs.name }}

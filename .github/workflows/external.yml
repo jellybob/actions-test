@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: |
-          echo "This is the external job."
+          echo "This is the external job. ${{ needs.release.outputs.test }}"
